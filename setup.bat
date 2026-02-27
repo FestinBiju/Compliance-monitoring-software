@@ -83,7 +83,7 @@ echo 2. Start frontend (in frontend folder, new terminal):
 echo    cd frontend
 echo    npm run dev
 echo.
-echo 3. Visit http://localhost:3000
+echo 3. Visit http://localhost:5173
 echo.
 echo To run migrations:
 echo    cd backend

@@ -79,7 +79,7 @@ venv\Scripts\activate
 npm run dev
 ```
 
-### Start Frontend (Port 3000)
+### Start Frontend (Port 5173)
 
 ```bash
 cd frontend
@@ -88,7 +88,7 @@ npm run dev
 
 ### Access the Application
 
-Open http://localhost:3000 in your browser.
+Open http://localhost:5173 in your browser.
 
 ## Database Migrations
 
@@ -127,14 +127,17 @@ npm run migrate:down
 │   ├── app/          # Application code
 │   ├── alembic/      # Database migrations
 │   └── requirements.txt
-├── frontend/         # Next.js frontend
-│   ├── app/          # App router pages
-│   └── lib/          # Utilities
+├── frontend/         # React + Vite frontend
+│   ├── src/          # Source code
+│   │   ├── app/      # App components
+│   │   ├── styles/   # CSS styles
+│   │   └── main.tsx  # Entry point
+│   └── index.html    # HTML template
 └── docker-compose.yml # PostgreSQL setup
 ```
 
 ## Tech Stack
 
 - Backend: FastAPI, SQLAlchemy, PostgreSQL
-- Frontend: Next.js 14, TypeScript, TailwindCSS
+- Frontend: React 18, Vite, TailwindCSS, Radix UI
 - Database: PostgreSQL 15
