@@ -11,12 +11,20 @@ A platform for monitoring and managing Indian regulatory compliance requirements
 
 ## Quick Setup
 
-Run the setup script:
+### Linux/Mac
 
 ```bash
 chmod +x setup.sh
 ./setup.sh
 ```
+
+### Windows
+
+```cmd
+setup.bat
+```
+
+Or use Git Bash/WSL to run the Linux script.
 
 ## Manual Setup
 
@@ -28,12 +36,22 @@ docker-compose up -d
 
 ### 2. Setup Backend
 
+**Linux/Mac:**
 ```bash
 cd backend
 python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
+```
+
+**Windows:**
+```cmd
+cd backend
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+copy .env.example .env
 ```
 
 ### 3. Setup Frontend
@@ -47,9 +65,17 @@ npm install
 
 ### Start Backend (Port 8000)
 
+**Linux/Mac:**
 ```bash
 cd backend
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate
+npm run dev
+```
+
+**Windows:**
+```cmd
+cd backend
+venv\Scripts\activate
 npm run dev
 ```
 
@@ -68,9 +94,17 @@ Open http://localhost:3000 in your browser.
 
 ### Create a new migration
 
+**Linux/Mac:**
 ```bash
 cd backend
 source venv/bin/activate
+npm run migrate:create "migration description"
+```
+
+**Windows:**
+```cmd
+cd backend
+venv\Scripts\activate
 npm run migrate:create "migration description"
 ```
 
