@@ -79,6 +79,8 @@ venv\Scripts\activate
 npm run dev
 ```
 
+The backend API will be available at http://localhost:8000
+
 ### Start Frontend (Port 5173)
 
 ```bash
@@ -89,6 +91,8 @@ npm run dev
 ### Access the Application
 
 Open http://localhost:5173 in your browser.
+
+The dashboard will now show live data from MeitY press releases!
 
 ## Database Migrations
 
