@@ -2,35 +2,35 @@
 
 :root {
   --font-size: 16px;
-  --background: #f8f9fb;
+  --background: #fafbfc;
   --foreground: #0f172a;
   --card: #ffffff;
   --card-foreground: #0f172a;
   --popover: #ffffff;
   --popover-foreground: #0f172a;
-  --primary: #1e3a5f;
+  --primary: #2563eb;
   --primary-foreground: #ffffff;
   --secondary: #f1f5f9;
   --secondary-foreground: #1e293b;
-  --muted: #f1f5f9;
+  --muted: #f8fafc;
   --muted-foreground: #64748b;
-  --accent: #e2e8f0;
-  --accent-foreground: #0f172a;
+  --accent: #e0f2fe;
+  --accent-foreground: #0c4a6e;
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
   --border: #e2e8f0;
   --input: transparent;
-  --input-background: #f1f5f9;
+  --input-background: #f8fafc;
   --switch-background: #cbd5e1;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #94a3b8;
-  --chart-1: #1e3a5f;
+  --ring: #3b82f6;
+  --chart-1: #2563eb;
   --chart-2: #3b82f6;
   --chart-3: #64748b;
   --chart-4: #f59e0b;
   --chart-5: #ef4444;
-  --radius: 0.5rem;
+  --radius: 0.75rem;
   --sidebar: #0f172a;
   --sidebar-foreground: #e2e8f0;
   --sidebar-primary: #3b82f6;
@@ -125,7 +125,36 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes pulse-subtle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
   }
 
   /**

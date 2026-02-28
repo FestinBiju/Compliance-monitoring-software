@@ -116,23 +116,23 @@ export function SourcesPage() {
   };
 
   return (
-    <div className="p-6 lg:p-8 max-w-7xl mx-auto space-y-6">
+    <div className="p-6 lg:p-8 max-w-7xl mx-auto space-y-6 animate-[fadeIn_0.5s_ease-out]">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
-          <h1 className="text-foreground">Sources</h1>
-          <p className="text-sm text-muted-foreground mt-1">
-            Manage regulatory sources being monitored
+        <div className="space-y-1">
+          <h1 className="text-3xl font-bold text-foreground tracking-tight">Sources</h1>
+          <p className="text-sm text-muted-foreground">
+            Manage and monitor regulatory sources
           </p>
         </div>
-        <Button onClick={handleOpenAdd} className="self-start">
+        <Button onClick={handleOpenAdd} className="self-start shadow-md hover:shadow-lg transition-shadow">
           <Plus className="w-4 h-4" />
           Add Source
         </Button>
       </div>
 
       {/* Search */}
-      <Card className="border border-border">
+      <Card className="border border-border shadow-sm">
         <CardContent className="p-4">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -140,18 +140,18 @@ export function SourcesPage() {
               placeholder="Search sources by name or category..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9"
+              className="pl-9 h-11"
             />
           </div>
         </CardContent>
       </Card>
 
       {/* Table */}
-      <Card className="border border-border">
-        <CardHeader>
-          <CardTitle>
+      <Card className="border border-border shadow-sm">
+        <CardHeader className="border-b border-border/50">
+          <CardTitle className="text-lg font-semibold">
             All Sources
-            <span className="ml-2 text-sm text-muted-foreground">
+            <span className="ml-2 text-sm font-normal text-muted-foreground">
               ({filteredSources.length})
             </span>
           </CardTitle>

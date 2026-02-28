@@ -45,17 +45,17 @@ export function ChangesFeedPage() {
     );
 
   return (
-    <div className="p-6 lg:p-8 max-w-7xl mx-auto space-y-6">
+    <div className="p-6 lg:p-8 max-w-7xl mx-auto space-y-6 animate-[fadeIn_0.5s_ease-out]">
       {/* Header */}
-      <div>
-        <h1 className="text-foreground">Changes Feed</h1>
-        <p className="text-sm text-muted-foreground mt-1">
-          Chronological log of all detected regulatory changes
+      <div className="space-y-1">
+        <h1 className="text-3xl font-bold text-foreground tracking-tight">Changes Feed</h1>
+        <p className="text-sm text-muted-foreground">
+          Real-time log of detected regulatory changes
         </p>
       </div>
 
       {/* Filters */}
-      <Card className="border border-border">
+      <Card className="border border-border shadow-sm">
         <CardContent className="p-4">
           <div className="flex flex-col md:flex-row gap-3">
             <div className="relative flex-1">
@@ -64,13 +64,13 @@ export function ChangesFeedPage() {
                 placeholder="Search changes..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-9"
+                className="pl-9 h-11"
               />
             </div>
             <div className="flex gap-3">
               <Select value={riskFilter} onValueChange={setRiskFilter}>
-                <SelectTrigger className="w-[160px]">
-                  <Filter className="w-3.5 h-3.5 mr-1 text-muted-foreground" />
+                <SelectTrigger className="w-[160px] h-11">
+                  <Filter className="w-3.5 h-3.5 mr-1.5 text-muted-foreground" />
                   <SelectValue placeholder="Risk Level" />
                 </SelectTrigger>
                 <SelectContent>
@@ -82,8 +82,8 @@ export function ChangesFeedPage() {
                 </SelectContent>
               </Select>
               <Select value={sourceFilter} onValueChange={setSourceFilter}>
-                <SelectTrigger className="w-[180px]">
-                  <Calendar className="w-3.5 h-3.5 mr-1 text-muted-foreground" />
+                <SelectTrigger className="w-[180px] h-11">
+                  <Calendar className="w-3.5 h-3.5 mr-1.5 text-muted-foreground" />
                   <SelectValue placeholder="Source" />
                 </SelectTrigger>
                 <SelectContent>
@@ -101,33 +101,36 @@ export function ChangesFeedPage() {
       </Card>
 
       {/* Results Count */}
-      <p className="text-sm text-muted-foreground">
-        Showing {filteredChanges.length} of {changes.length} changes
-      </p>
+      <div className="flex items-center justify-between">
+        <p className="text-sm font-medium text-muted-foreground">
+          Showing {filteredChanges.length} of {changes.length} changes
+        </p>
+      </div>
 
       {/* Changes Cards */}
       <div className="space-y-3">
-        {filteredChanges.map((change) => {
+        {filteredChanges.map((change, index) => {
           const risk = riskColors[change.riskLevel as RiskLevel];
           return (
             <Card
               key={change.id}
-              className="border border-border hover:border-border/80 transition-colors"
+              className="border border-border hover:border-primary/30 hover:shadow-md transition-all duration-200"
+              style={{ animationDelay: `${index * 30}ms` }}
             >
               <CardContent className="p-5">
                 <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-                  <div className="flex-1 min-w-0 space-y-2">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-sm text-foreground">{change.sourceName}</span>
+                  <div className="flex-1 min-w-0 space-y-3">
+                    <div className="flex items-center gap-2.5 flex-wrap">
+                      <span className="text-sm font-semibold text-foreground">{change.sourceName}</span>
                       <Badge
-                        className={`${risk.bg} ${risk.text} border-0 capitalize text-[11px] px-1.5 py-0`}
+                        className={`${risk.bg} ${risk.text} border-0 capitalize text-[11px] px-2 py-0.5 font-medium`}
                       >
                         <span
-                          className={`w-1.5 h-1.5 rounded-full ${risk.dot}`}
+                          className={`w-1.5 h-1.5 rounded-full ${risk.dot} mr-1`}
                         />
                         {change.riskLevel}
                       </Badge>
-                      <Badge variant="secondary" className="text-[11px] px-1.5 py-0">
+                      <Badge variant="secondary" className="text-[11px] px-2 py-0.5 font-medium">
                         {change.affectedSector.split(",")[0]}
                       </Badge>
                     </div>
@@ -135,16 +138,16 @@ export function ChangesFeedPage() {
                       {change.changeSummary}
                     </p>
                     <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                      <span className="flex items-center gap-1">
+                      <span className="flex items-center gap-1.5 font-medium">
                         <Calendar className="w-3 h-3" />
                         {formatDate(change.detectedAt)}
                       </span>
                     </div>
                   </div>
                   <Link to={`/changes/${change.id}`} className="shrink-0">
-                    <Button variant="outline" size="sm">
+                    <Button variant="outline" size="sm" className="hover:bg-primary hover:text-primary-foreground transition-colors shadow-sm">
                       View Details
-                      <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                      <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
                     </Button>
                   </Link>
                 </div>
@@ -155,8 +158,11 @@ export function ChangesFeedPage() {
       </div>
 
       {filteredChanges.length === 0 && (
-        <div className="text-center py-16">
-          <p className="text-muted-foreground text-sm">
+        <div className="text-center py-20">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-4">
+            <Filter className="w-8 h-8 text-muted-foreground" />
+          </div>
+          <p className="text-muted-foreground text-sm font-medium">
             No changes match your current filters.
           </p>
         </div>
