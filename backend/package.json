@@ -1,12 +1,21 @@
 {
-  "name": "compliance-backend",
-  "version": "0.1.0",
+  "name": "compliance-monitoring-backend",
+  "version": "1.0.0",
+  "description": "Backend for Indian Compliance Monitoring Platform",
   "scripts": {
-    "install": "pip install -r requirements.txt",
-    "dev": "python -m uvicorn app.main:app --reload --port 8000",
-    "start": "python -m uvicorn app.main:app --host 0.0.0.0 --port 8000",
-    "migrate:create": "python -m alembic revision --autogenerate -m",
-    "migrate:up": "python -m alembic upgrade head",
-    "migrate:down": "python -m alembic downgrade -1"
-  }
+    "dev": "uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+    "start": "uvicorn app.main:app --host 0.0.0.0 --port 8000",
+    "migrate:create": "alembic revision --autogenerate -m",
+    "migrate:up": "alembic upgrade head",
+    "migrate:down": "alembic downgrade -1",
+    "monitor": "python app/monitor.py",
+    "monitor:mock": "python app/monitor_mock.py"
+  },
+  "keywords": [
+    "compliance",
+    "monitoring",
+    "fastapi"
+  ],
+  "author": "",
+  "license": "ISC"
 }

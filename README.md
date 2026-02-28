@@ -141,3 +141,32 @@ npm run migrate:down
 - Backend: FastAPI, SQLAlchemy, PostgreSQL
 - Frontend: React 18, Vite, TailwindCSS, Radix UI
 - Database: PostgreSQL 15
+
+## Monitoring MeitY Press Releases
+
+The platform monitors press releases from the Ministry of Electronics and Information Technology (MeitY) for DPDP Act-related updates.
+
+### How it works
+
+The monitoring script (`backend/app/monitor.py`) uses the MeitY WordPress API to fetch press releases directly:
+
+- API Endpoint: `https://www.meity.gov.in/cms/wp-json/document/documents`
+- Returns English content by default (no language switching needed)
+- Filters press releases for DPDP-related keywords
+- No browser automation required
+
+### Running the monitor
+
+```bash
+cd backend
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+python app/monitor.py
+```
+
+### Testing
+
+For testing the filtering logic with mock data:
+
+```bash
+python app/monitor_mock.py
+```
