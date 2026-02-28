@@ -67,36 +67,40 @@ export function DashboardPage() {
     .slice(0, 5);
 
   return (
-    <div className="p-6 lg:p-8 max-w-7xl mx-auto space-y-8">
+    <div className="p-6 lg:p-8 max-w-7xl mx-auto space-y-8 animate-[fadeIn_0.5s_ease-out]">
       {/* Header */}
-      <div>
-        <h1 className="text-foreground">Dashboard</h1>
-        <p className="text-sm text-muted-foreground mt-1">
-          Compliance monitoring overview and recent activity
+      <div className="space-y-1">
+        <h1 className="text-3xl font-bold text-foreground tracking-tight">Dashboard</h1>
+        <p className="text-sm text-muted-foreground">
+          Real-time compliance monitoring and regulatory intelligence
         </p>
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {stats.map((stat) => (
-          <Card key={stat.title} className="border border-border">
-            <CardContent className="p-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+        {stats.map((stat, index) => (
+          <Card 
+            key={stat.title} 
+            className="border border-border shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+            style={{ animationDelay: `${index * 50}ms` }}
+          >
+            <CardContent className="p-6">
               <div className="flex items-start justify-between">
-                <div className="space-y-2">
-                  <p className="text-xs text-muted-foreground uppercase tracking-wider">
+                <div className="space-y-3 flex-1">
+                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
                     {stat.title}
                   </p>
-                  <div className="flex items-baseline gap-1.5">
-                    <span className="text-2xl text-foreground">{stat.value}</span>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-3xl font-bold text-foreground">{stat.value}</span>
                     {stat.total !== undefined && (
-                      <span className="text-sm text-muted-foreground">/ {stat.total}</span>
+                      <span className="text-base text-muted-foreground font-medium">/ {stat.total}</span>
                     )}
                   </div>
                   {stat.subtitle && (
-                    <p className="text-xs text-muted-foreground">{stat.subtitle}</p>
+                    <p className="text-xs text-muted-foreground font-medium">{stat.subtitle}</p>
                   )}
                 </div>
-                <div className={`p-2 rounded-lg ${stat.bgColor}`}>
+                <div className={`p-3 rounded-xl ${stat.bgColor} shadow-sm`}>
                   <stat.icon className={`w-5 h-5 ${stat.color}`} />
                 </div>
               </div>
@@ -106,48 +110,54 @@ export function DashboardPage() {
       </div>
 
       {/* Latest Changes */}
-      <Card className="border border-border">
-        <CardHeader className="pb-4">
+      <Card className="border border-border shadow-sm">
+        <CardHeader className="pb-4 border-b border-border/50">
           <div className="flex items-center justify-between">
-            <CardTitle className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-muted-foreground" />
+            <CardTitle className="flex items-center gap-2.5 text-lg font-semibold">
+              <div className="p-2 rounded-lg bg-blue-50">
+                <Clock className="w-4 h-4 text-blue-600" />
+              </div>
               Recent Changes
             </CardTitle>
             <Link to="/changes">
-              <Button variant="ghost" size="sm" className="text-muted-foreground">
+              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground transition-colors">
                 View All
-                <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
               </Button>
             </Link>
           </div>
         </CardHeader>
-        <CardContent className="px-6 pb-6">
-          <div className="space-y-3">
-            {latestChanges.map((change) => {
+        <CardContent className="px-6 pb-6 pt-4">
+          <div className="space-y-2">
+            {latestChanges.map((change, index) => {
               const risk = riskColors[change.riskLevel as RiskLevel];
               return (
                 <Link
                   key={change.id}
                   to={`/changes/${change.id}`}
-                  className="flex items-start gap-4 p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors group"
+                  className="flex items-start gap-4 p-4 rounded-xl border border-border hover:border-primary/30 hover:bg-accent/30 transition-all duration-200 group"
+                  style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1 flex-wrap">
-                      <span className="text-sm text-foreground">{change.sourceName}</span>
+                  <div className="flex-1 min-w-0 space-y-2">
+                    <div className="flex items-center gap-2.5 flex-wrap">
+                      <span className="text-sm font-medium text-foreground">{change.sourceName}</span>
                       <Badge
-                        className={`${risk.bg} ${risk.text} border-0 capitalize text-[11px] px-1.5 py-0`}
+                        className={`${risk.bg} ${risk.text} border-0 capitalize text-[11px] px-2 py-0.5 font-medium`}
                       >
-                        <span className={`w-1.5 h-1.5 rounded-full ${risk.dot}`} />
+                        <span className={`w-1.5 h-1.5 rounded-full ${risk.dot} mr-1`} />
                         {change.riskLevel}
                       </Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground truncate">
+                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
                       {change.changeSummary}
                     </p>
                   </div>
-                  <span className="text-xs text-muted-foreground whitespace-nowrap shrink-0 mt-0.5">
-                    {formatRelativeTime(change.detectedAt)}
-                  </span>
+                  <div className="flex flex-col items-end gap-2 shrink-0">
+                    <span className="text-xs text-muted-foreground whitespace-nowrap font-medium">
+                      {formatRelativeTime(change.detectedAt)}
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                  </div>
                 </Link>
               );
             })}
@@ -156,26 +166,34 @@ export function DashboardPage() {
       </Card>
 
       {/* Risk Distribution */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <Card className="border border-border">
-          <CardHeader>
-            <CardTitle>Risk Distribution</CardTitle>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <Card className="border border-border shadow-sm">
+          <CardHeader className="border-b border-border/50">
+            <CardTitle className="text-lg font-semibold flex items-center gap-2">
+              <div className="p-2 rounded-lg bg-orange-50">
+                <AlertTriangle className="w-4 h-4 text-orange-600" />
+              </div>
+              Risk Distribution
+            </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
+          <CardContent className="pt-6">
+            <div className="space-y-4">
               {(["critical", "high", "medium", "low"] as RiskLevel[]).map((level) => {
                 const count = changes.filter((c) => c.riskLevel === level).length;
                 const percentage = changes.length > 0 ? (count / changes.length) * 100 : 0;
                 const risk = riskColors[level];
                 return (
-                  <div key={level} className="space-y-1.5">
+                  <div key={level} className="space-y-2">
                     <div className="flex items-center justify-between text-sm">
-                      <span className="capitalize text-foreground">{level}</span>
-                      <span className="text-muted-foreground">{count}</span>
+                      <span className="capitalize font-medium text-foreground">{level}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-muted-foreground font-medium">{count}</span>
+                        <span className="text-xs text-muted-foreground">({percentage.toFixed(0)}%)</span>
+                      </div>
                     </div>
-                    <div className="h-2 bg-muted rounded-full overflow-hidden">
+                    <div className="h-2.5 bg-muted rounded-full overflow-hidden shadow-inner">
                       <div
-                        className={`h-full ${risk.dot} rounded-full transition-all`}
+                        className={`h-full ${risk.dot} rounded-full transition-all duration-500 ease-out`}
                         style={{ width: `${percentage}%` }}
                       />
                     </div>
@@ -186,34 +204,38 @@ export function DashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className="border border-border">
-          <CardHeader>
-            <CardTitle>Monitored Categories</CardTitle>
+        <Card className="border border-border shadow-sm">
+          <CardHeader className="border-b border-border/50">
+            <CardTitle className="text-lg font-semibold flex items-center gap-2">
+              <div className="p-2 rounded-lg bg-indigo-50">
+                <Radio className="w-4 h-4 text-indigo-600" />
+              </div>
+              Monitored Categories
+            </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pt-6">
             <div className="space-y-2.5">
               {Array.from(new Set(sources.map((s) => s.category))).map((cat) => {
                 const count = sources.filter((s) => s.category === cat).length;
                 const activeCount = sources.filter(
                   (s) => s.category === cat && s.status === "active"
                 ).length;
+                const percentage = (activeCount / count) * 100;
                 return (
                   <div
                     key={cat}
-                    className="flex items-center justify-between py-2 px-3 rounded-md bg-muted/50"
+                    className="flex items-center justify-between py-3 px-4 rounded-xl bg-gradient-to-r from-muted/50 to-muted/30 border border-border/50 hover:border-border transition-colors"
                   >
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm text-foreground">{cat}</span>
+                    <div className="flex items-center gap-3">
+                      <div className={`w-2 h-2 rounded-full ${
+                        percentage === 100 ? "bg-emerald-500" : percentage > 50 ? "bg-amber-500" : "bg-red-500"
+                      } shadow-sm`} />
+                      <span className="text-sm font-medium text-foreground">{cat}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs text-muted-foreground">
+                      <span className="text-xs font-medium text-muted-foreground">
                         {activeCount}/{count} active
                       </span>
-                      <div
-                        className={`w-2 h-2 rounded-full ${
-                          activeCount === count ? "bg-emerald-500" : "bg-amber-500"
-                        }`}
-                      />
                     </div>
                   </div>
                 );
