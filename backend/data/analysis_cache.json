@@ -1,0 +1,213 @@
+{
+  "DEMO-001": {
+    "analysis": {
+      "applicable": true,
+      "risk_level": "Critical",
+      "affected_obligation_id": "DPDP-004",
+      "summary": "Mandatory 72-hour data breach notification for breaches affecting over 1000 users significantly impacts TechCorp's incident response and compliance with DPDP Act 2023, carrying critical penalties.",
+      "tasks": [
+        {
+          "title": "Update Data Breach Response Plan to include mandatory 72-hour notification to Data Protection Board for breaches affecting >1000 users.",
+          "priority": "High",
+          "deadline_days": 7
+        },
+        {
+          "title": "Conduct urgent briefing for DPO, IT Security, Legal, and Incident Response teams on new 72-hour breach notification requirements and updated procedures.",
+          "priority": "High",
+          "deadline_days": 3
+        },
+        {
+          "title": "Develop or refine internal procedures and templates for assessing the number of affected data principals and categories of data involved in a breach for reporting.",
+          "priority": "Medium",
+          "deadline_days": 14
+        }
+      ],
+      "reasoning_steps": [
+        "TechCorp India Pvt Ltd is a Data Fiduciary and subject to the DPDP Act 2023, making the regulatory update directly applicable.",
+        "The update introduces a mandatory 72-hour notification timeline and a threshold of >1000 affected users, which is a critical change to the existing 'Data Breach Notification' obligation (DPDP-004).",
+        "The company processes PII, financial data, and employee records, making it highly probable that a breach could affect more than 1000 users.",
+        "Failure to comply carries severe penalties up to ₹200 crores, elevating the risk level to Critical."
+      ],
+      "retrieved_obligation": {
+        "id": "DPDP-004",
+        "title": "Data Breach Notification",
+        "description": "Notify Data Protection Board and affected individuals in case of data breach",
+        "category": "Incident Response",
+        "severity": "critical",
+        "requirements": [
+          "Notify Board and affected individuals promptly",
+          "Provide details of breach and remedial actions",
+          "Maintain breach records",
+          "Implement breach response procedures"
+        ],
+        "applicable_sections": [
+          "Section 8(6)"
+        ],
+        "penalties": "Up to ₹200 crores for failure to notify"
+      }
+    },
+    "cached_at": "2026-02-28T13:30:20.040850",
+    "change_id": "DEMO-001"
+  },
+  "DEMO-002": {
+    "analysis": {
+      "applicable": true,
+      "risk_level": "High",
+      "affected_obligation_id": "DPDP-001",
+      "summary": "New comprehensive consent management guidelines under DPDP Act 2023 require TechCorp to review and potentially update its existing consent processes and systems to ensure full compliance.",
+      "tasks": [
+        {
+          "title": "Conduct a detailed gap analysis of the existing Consent Management System (CMS) and processes against the new DPDP consent framework guidelines.",
+          "priority": "High",
+          "deadline_days": 7
+        },
+        {
+          "title": "Update all consent acquisition mechanisms, privacy notices, and data processing agreements to ensure they meet the new requirements for clear, specific, and informed consent.",
+          "priority": "High",
+          "deadline_days": 7
+        },
+        {
+          "title": "Develop and implement a plan for regular internal audits of consent records and data processing activities to verify ongoing compliance with the updated framework.",
+          "priority": "Medium",
+          "deadline_days": 14
+        }
+      ],
+      "reasoning_steps": [
+        "Step 1: TechCorp is a Data Fiduciary and lists DPDP Act 2023 as a compliance requirement, making the new consent management framework applicable.",
+        "Step 2: The regulatory update provides comprehensive guidelines for consent, directly impacting the critical 'Consent Management' obligation (DPDP-001).",
+        "Step 3: While TechCorp has an existing CMS and DPO, the 'comprehensive guidelines' necessitate a thorough review and potential update of current practices to ensure alignment.",
+        "Step 4: Non-compliance with consent requirements carries significant penalties (up to ₹200 crores), warranting a high-risk assessment and prompt action to mitigate exposure."
+      ],
+      "retrieved_obligation": {
+        "id": "DPDP-001",
+        "title": "Consent Management",
+        "description": "Obtain valid consent from Data Principals before processing personal data",
+        "category": "Consent",
+        "severity": "critical",
+        "requirements": [
+          "Consent must be free, specific, informed, unconditional and unambiguous",
+          "Consent must be obtained through clear affirmative action",
+          "Consent can be withdrawn at any time",
+          "Separate consent required for different purposes"
+        ],
+        "applicable_sections": [
+          "Section 6",
+          "Section 7"
+        ],
+        "penalties": "Up to ₹200 crores for non-compliance"
+      }
+    },
+    "cached_at": "2026-02-28T13:30:29.742683",
+    "change_id": "DEMO-002"
+  },
+  "DEMO-003": {
+    "analysis": {
+      "applicable": true,
+      "risk_level": "Critical",
+      "affected_obligation_id": "DPDP-005",
+      "summary": "New regulations require prior approval for sensitive personal data transfers and implementation of SCCs for all international transfers, with a 90-day compliance window.",
+      "tasks": [
+        {
+          "title": "Initiate an urgent audit of all international data transfers to identify sensitive personal data and current transfer mechanisms.",
+          "priority": "Critical",
+          "deadline_days": 3
+        },
+        {
+          "title": "Engage legal counsel to draft/update all international data transfer agreements to incorporate Standard Contractual Clauses (SCCs).",
+          "priority": "High",
+          "deadline_days": 7
+        },
+        {
+          "title": "Prepare and compile all necessary documentation for prior approval applications to the Data Protection Board for identified sensitive personal data transfers.",
+          "priority": "High",
+          "deadline_days": 14
+        },
+        {
+          "title": "Develop a comprehensive plan and timeline for notifying the Data Protection Board of all existing international data transfer arrangements.",
+          "priority": "Medium",
+          "deadline_days": 30
+        }
+      ],
+      "reasoning_steps": [
+        "TechCorp India Pvt Ltd processes PII, financial, and employment data, which likely includes sensitive personal data, and operates internationally (EU, US).",
+        "The regulatory update directly impacts cross-border data transfers, requiring prior approval for sensitive data and SCCs for all international transfers.",
+        "The company's existing international data transfer activities are now subject to new, stringent requirements with a 90-day compliance deadline and high penalties (₹200 crores).",
+        "Immediate actions are necessary to identify affected data, update legal agreements, prepare for regulatory approvals, and plan notifications to mitigate critical compliance risks."
+      ],
+      "retrieved_obligation": {
+        "id": "DPDP-005",
+        "title": "Cross-Border Data Transfer",
+        "description": "Ensure compliance when transferring data outside India",
+        "category": "Data Transfer",
+        "severity": "high",
+        "requirements": [
+          "Transfer only to notified countries/territories",
+          "Ensure adequate data protection in recipient country",
+          "Maintain transfer records",
+          "Obtain necessary approvals"
+        ],
+        "applicable_sections": [
+          "Section 16"
+        ],
+        "penalties": "Up to ₹200 crores for unauthorized transfers"
+      }
+    },
+    "cached_at": "2026-02-28T13:30:47.509996",
+    "change_id": "DEMO-003"
+  },
+  "DEMO-004": {
+    "analysis": {
+      "applicable": true,
+      "risk_level": "Critical",
+      "affected_obligation_id": "DPDP-003",
+      "summary": "TechCorp India must immediately implement enhanced data security measures including encryption, MFA, RBAC, regular audits, and detailed logging to comply with new DPDP Act 2023 technical standards and mitigate critical data breach risks.",
+      "tasks": [
+        {
+          "title": "Implement encryption at rest and in transit for all personal data",
+          "priority": "High",
+          "deadline_days": 3
+        },
+        {
+          "title": "Deploy Multi-Factor Authentication (MFA) and Role-Based Access Controls (RBAC) across all systems processing personal data",
+          "priority": "High",
+          "deadline_days": 3
+        },
+        {
+          "title": "Schedule and conduct immediate security audits and penetration testing, followed by a regular cadence",
+          "priority": "High",
+          "deadline_days": 3
+        },
+        {
+          "title": "Establish and maintain detailed logging for all data access and processing activities for audit purposes",
+          "priority": "High",
+          "deadline_days": 3
+        }
+      ],
+      "reasoning_steps": [
+        "The company processes personal data and lists DPDP Act 2023 as a compliance requirement, making the regulatory update directly applicable.",
+        "The update mandates critical security measures (encryption, MFA, RBAC, audits, logging) directly impacting the 'Data Security Measures' obligation (DPDP-003) which is already marked as 'critical' severity.",
+        "Failure to comply with these new technical standards carries significant penalties (up to ₹250 crores) and poses a high risk of data breaches, elevating the overall risk level to Critical.",
+        "Actionable tasks are derived directly from the mandated requirements in the regulatory update, with high priority and short deadlines reflecting the critical risk and severity."
+      ],
+      "retrieved_obligation": {
+        "id": "DPDP-003",
+        "title": "Data Security Measures",
+        "description": "Implement reasonable security safeguards to protect personal data",
+        "category": "Security",
+        "severity": "critical",
+        "requirements": [
+          "Implement technical and organizational measures",
+          "Prevent unauthorized access and data breaches",
+          "Regular security audits",
+          "Encryption of sensitive data"
+        ],
+        "applicable_sections": [
+          "Section 8"
+        ],
+        "penalties": "Up to ₹250 crores for data breaches"
+      }
+    },
+    "cached_at": "2026-02-28T13:30:44.014463",
+    "change_id": "DEMO-004"
+  }
+}

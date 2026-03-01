@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router";
 import { Layout } from "./components/layout";
 import { DashboardPage } from "./components/dashboard-page-live";
 import { SourcesPage } from "./components/sources-page";
-import { ChangesFeedPage } from "./components/changes-feed-page";
+import { ChangesFeedPage } from "./components/changes-feed-page-ai";
 import { ChangeDetailPage } from "./components/change-detail-page";
 import { SettingsPage } from "./components/settings-page";
 import { SystemStatusPage } from "./components/system-status-page";

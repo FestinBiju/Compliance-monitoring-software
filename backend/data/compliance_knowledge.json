@@ -1,0 +1,114 @@
+{
+  "framework": "Digital Personal Data Protection Act 2023",
+  "version": "1.0",
+  "last_updated": "2024-01-15",
+  "obligations": [
+    {
+      "id": "DPDP-001",
+      "title": "Consent Management",
+      "description": "Obtain valid consent from Data Principals before processing personal data",
+      "category": "Consent",
+      "severity": "critical",
+      "requirements": [
+        "Consent must be free, specific, informed, unconditional and unambiguous",
+        "Consent must be obtained through clear affirmative action",
+        "Consent can be withdrawn at any time",
+        "Separate consent required for different purposes"
+      ],
+      "applicable_sections": ["Section 6", "Section 7"],
+      "penalties": "Up to ₹200 crores for non-compliance"
+    },
+    {
+      "id": "DPDP-002",
+      "title": "Data Principal Rights",
+      "description": "Ensure Data Principals can exercise their rights effectively",
+      "category": "Rights Management",
+      "severity": "high",
+      "requirements": [
+        "Right to access personal data",
+        "Right to correction and erasure",
+        "Right to grievance redressal",
+        "Right to nominate"
+      ],
+      "applicable_sections": ["Section 11", "Section 12", "Section 13"],
+      "penalties": "Up to ₹200 crores for non-compliance"
+    },
+    {
+      "id": "DPDP-003",
+      "title": "Data Security Measures",
+      "description": "Implement reasonable security safeguards to protect personal data",
+      "category": "Security",
+      "severity": "critical",
+      "requirements": [
+        "Implement technical and organizational measures",
+        "Prevent unauthorized access and data breaches",
+        "Regular security audits",
+        "Encryption of sensitive data"
+      ],
+      "applicable_sections": ["Section 8"],
+      "penalties": "Up to ₹250 crores for data breaches"
+    },
+    {
+      "id": "DPDP-004",
+      "title": "Data Breach Notification",
+      "description": "Notify Data Protection Board and affected individuals in case of data breach",
+      "category": "Incident Response",
+      "severity": "critical",
+      "requirements": [
+        "Notify Board and affected individuals promptly",
+        "Provide details of breach and remedial actions",
+        "Maintain breach records",
+        "Implement breach response procedures"
+      ],
+      "applicable_sections": ["Section 8(6)"],
+      "penalties": "Up to ₹200 crores for failure to notify"
+    },
+    {
+      "id": "DPDP-005",
+      "title": "Cross-Border Data Transfer",
+      "description": "Ensure compliance when transferring data outside India",
+      "category": "Data Transfer",
+      "severity": "high",
+      "requirements": [
+        "Transfer only to notified countries/territories",
+        "Ensure adequate data protection in recipient country",
+        "Maintain transfer records",
+        "Obtain necessary approvals"
+      ],
+      "applicable_sections": ["Section 16"],
+      "penalties": "Up to ₹200 crores for unauthorized transfers"
+    },
+    {
+      "id": "DPDP-006",
+      "title": "Data Retention and Deletion",
+      "description": "Retain data only as long as necessary and delete when purpose is fulfilled",
+      "category": "Data Lifecycle",
+      "severity": "medium",
+      "requirements": [
+        "Define retention periods for each data category",
+        "Delete data when purpose is fulfilled",
+        "Implement automated deletion processes",
+        "Maintain deletion logs"
+      ],
+      "applicable_sections": ["Section 8(4)"],
+      "penalties": "Up to ₹50 crores for non-compliance"
+    }
+  ],
+  "key_definitions": {
+    "data_fiduciary": "Entity that determines the purpose and means of processing personal data",
+    "data_principal": "Individual to whom the personal data relates",
+    "data_processor": "Entity that processes personal data on behalf of Data Fiduciary",
+    "personal_data": "Data about an individual who is identifiable by or in relation to such data",
+    "consent": "Free, specific, informed, unconditional and unambiguous indication of Data Principal's wishes"
+  },
+  "enforcement_authority": {
+    "name": "Data Protection Board of India",
+    "establishment": "To be notified",
+    "powers": [
+      "Investigate complaints",
+      "Impose penalties",
+      "Issue directions",
+      "Conduct audits"
+    ]
+  }
+}

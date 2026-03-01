@@ -1,0 +1,35 @@
+{
+  "company_name": "TechCorp India Pvt Ltd",
+  "industry": "Technology",
+  "sector": "Software & IT Services",
+  "size": "Medium Enterprise",
+  "employees": 250,
+  "data_processing_activities": [
+    "Customer data management",
+    "Employee records management",
+    "Marketing analytics",
+    "Payment processing"
+  ],
+  "data_types_processed": [
+    "Personal identifiable information (PII)",
+    "Financial data",
+    "Employment records",
+    "Customer preferences"
+  ],
+  "geographic_scope": [
+    "India",
+    "International (EU, US)"
+  ],
+  "compliance_requirements": [
+    "DPDP Act 2023",
+    "IT Act 2000",
+    "RBI Guidelines"
+  ],
+  "data_fiduciary_status": true,
+  "consent_management_system": true,
+  "data_protection_officer": {
+    "name": "Rajesh Kumar",
+    "email": "dpo@techcorp.in",
+    "phone": "+91-9876543210"
+  }
+}

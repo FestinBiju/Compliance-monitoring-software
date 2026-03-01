@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE_URL = 'http://localhost:8000';
 
 export interface Change {
   id: string;
@@ -11,6 +11,7 @@ export interface Change {
   link: string;
   content?: string;
   matchedKeywords?: string[];
+  ai_analysis?: any;
 }
 
 export interface ChangesResponse {
@@ -87,8 +88,8 @@ export const api = {
   },
 
   // Specific API methods
-  getChanges: (page: number = 1, limit: number = 10): Promise<ChangesResponse> =>
-    api.get(`/api/changes?page=${page}&limit=${limit}`),
+  getChanges: (page: number = 1, limit: number = 10, autoAnalyze: boolean = true): Promise<ChangesResponse> =>
+    api.get(`/api/changes?page=${page}&limit=${limit}&auto_analyze=${autoAnalyze}`),
 
   getChange: (id: string): Promise<Change> =>
     api.get(`/api/changes/${id}`),
